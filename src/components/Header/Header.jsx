@@ -45,7 +45,7 @@ function Header() {
             </Link>
           </div>
           <ul className='flex ml-auto'>
-            {navItmes.map((item)=>
+            {navItems.map((item)=>
               item.active?(
                 <li key={item.name}>
                   <button
