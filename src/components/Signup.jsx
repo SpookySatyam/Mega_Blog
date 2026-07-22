@@ -20,7 +20,7 @@ function Signup() {
         if(userData){
           const userData=await authService.getCurrentUser()
           
-          if(userData) dispatch(login(userData));
+          if(userData) dispatch(login({userData}));
           navigate("/");
         }
       } catch (error) {
@@ -40,11 +40,11 @@ function Signup() {
         <h2 className='text-center text-2xl font-bold leading-tight'>
           Sign in to your account
         </h2>
-        <p className='mt-2 text-center text-base text-black'>
+        <p className='mt-2 text-center text-base text-black/60'>
           Don&apos;t have any account?&nbsp;
           <Link
               to="/signup"
-              className='font-medium text-primart transition-all duration-200 hover:underline'
+              className='font-medium text-primary transition-all duration-200 hover:underline'
           >
               Sign Up
           </Link>
@@ -56,6 +56,7 @@ function Signup() {
               <Input
                 label="Full Name: "
                 placeholder="Enter your full name"
+                type="email"
                 {...register("name",{
                   required:true,
                   validate:{
@@ -67,7 +68,7 @@ function Signup() {
                 label="Password: "
                 type="password"
                 placeholder="Enter your password"
-                {...register("name",{
+                {...register("password",{
                   required:true,
                 })}
               />
