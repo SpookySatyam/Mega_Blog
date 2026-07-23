@@ -56,11 +56,18 @@ function Signup() {
               <Input
                 label="Full Name: "
                 placeholder="Enter your full name"
+                {...register("name", {
+                    required: true,
+                })}
+              />
+              <Input
+                label="Email: "
+                placeholder="Enter your email id..."
                 type="email"
-                {...register("name",{
+                {...register("email",{
                   required:true,
                   validate:{
-                     matchPatern:(value)=>/^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value)||"Email address must be a valid address",
+                     matchPattern:(value)=>/^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm.test(value)||"Email address must be a valid address",
                   }
                 })}
               />
@@ -74,7 +81,7 @@ function Signup() {
               />
               <Button 
                 type="submit"
-                className="w-full"
+                className="w-full hover:cursor-pointer active:transition-transform active:scale-102"
               >
                 Create Account
               </Button>
